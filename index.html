@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .modal {
+            width: 400px;
+            height: 300px;
+            background-color: #fff;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+            text-align: center;
+            padding: 20px;
+            z-index: 100;
+            display: none;
+        }
+
+        .bg-modal {
+            z-index: 99;
+            position: relative;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.2);
+            width: 100%;
+            height: 100vh;
+            display: none;
+        }
+
+        .close {
+            color: red;
+            position: absolute;
+            top: 2px;
+            right: 5px;
+            font-size: 30px;
+            font-weight: 900;
+        }
+
+        .btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px 20px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="" class="btn">open modal</a>
+    <div class="modal">
+        <p>this is a simple modal! </p>
+        <a href="" class="close">&times;</a>
+    </div>
+    <div class="bg-modal"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+        integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+
+        $(function () {
+            $('.btn').click(function (e) {
+                e.preventDefault();
+                $('.bg-modal').fadeIn(function () { $('.modal').fadeIn(); });
+            });
+
+            $('.close , .bg-modal').click(function (e) {
+                e.preventDefault();
+                $('.modal').fadeOut(function () { $('.bg-modal').fadeOut(); });
+            });
+        });
+
+    </script>
+</body>
+
+</html>
